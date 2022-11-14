@@ -8,13 +8,13 @@ describe('backend-express-template routes', () => {
     return setup(pool);
   });
 
-  // test 1
+  // test 1 - GET ALL
   it('GET return all car data', async () => {
     const res = await request(app).get('/cars');
     expect(res.body.length).toEqual(10);
   });
 
-  // test 2
+  // test 2 - GET DETAIL
   it('GET return car detail with id', async () => {
     const res = await request(app).get('/cars/1');
     const test = {
@@ -28,6 +28,7 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
+  // test 3 - POST
   it('POST should create new car in data base', async () => {
     const newCar = {
       make: 'Hummer',
@@ -40,12 +41,14 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
   });
 
+  // test 4 - PUT
   it('PUT /cars/2 should update with id #2', async () => {
     const resp = await request(app).put('/cars/2').send({ color: 'White' });
     expect(resp.status).toBe(200);
     expect(resp.body.color).toBe('White');
   });
 
+  // test 5 - DELETE
   it('DELETE THIS NEPHEW /cars/1 should delete cars #1', async () => {
     const resp = await request(app).delete('/cars/1');
     expect(resp.status).toBe(204);
