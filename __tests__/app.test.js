@@ -41,7 +41,8 @@ describe('backend-express-template routes', () => {
   });
 
   it('PUT /cars/2 should update with id #2', async () => {
-    const resp = await (await request(app).put('/cars/2')).send({ color: 'White' });
+    const resp = await request(app).put('/cars/2').send({ color: 'White' });
+    expect(resp.status).toBe(200);
     expect(resp.body.color).toBe('White');
   });
 
