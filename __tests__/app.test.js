@@ -27,7 +27,7 @@ describe('backend-express-template routes', () => {
     };
     expect(res.body).toEqual(test);
   });
-  
+
   it('should create new car in data base', async () => {
     const newCar = {
       make: 'Hummer',
@@ -36,7 +36,7 @@ describe('backend-express-template routes', () => {
       color: 'Hummer',
       origin: 'Hummer',
     };
-    const resp = await (await request(app).post('/cars')).setEncoding(newCar);
+    const resp = await request(app).post('/cars').send(newCar);
     expect(resp.status).toBe(200);
   });
 
