@@ -38,7 +38,7 @@ describe('backend-express-template routes', () => {
       salary: 140000,
       field: 'Leadership'
     };
-    const resp = await request(app).post('/cars').send(newJob);
+    const resp = await request(app).post('/jobs').send(newJob);
     expect(resp.status).toBe(200);
   });
 
