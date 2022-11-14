@@ -46,6 +46,11 @@ describe('backend-express-template routes', () => {
     expect(resp.body.color).toBe('White');
   });
 
+  it('DELETE THIS NEPHEW /cars/1 should delete cars #1', async () => {
+    const resp = await request(app).delete('/cars/1');
+    expect(resp.status).toBe(204);
+  });
+
   afterAll(() => {
     pool.end();
   });
