@@ -8,6 +8,7 @@ describe('backend-express-template routes', () => {
     return setup(pool);
   });
 
+  // test 1
   it('return all car data', async () => {
     const res = await request(app).get('/cars');
     expect(res.body.length).toEqual(10);
