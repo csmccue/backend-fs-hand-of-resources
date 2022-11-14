@@ -26,8 +26,18 @@ describe('backend-express-template routes', () => {
       origin: 'United States',
     };
     expect(res.body).toEqual(test);
-
-
+  });
+  
+  it('should create new car in data base', async () => {
+    const newCar = {
+      make: 'Hummer',
+      model: 'Hummer',
+      year: 'Hummer',
+      color: 'Hummer',
+      origin: 'Hummer',
+    };
+    const resp = await (await request(app).post('/cars')).setEncoding(newCar);
+    expect(resp.status).toBe(200);
   });
 
   afterAll(() => {
