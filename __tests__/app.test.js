@@ -14,6 +14,20 @@ describe('backend-express-template routes', () => {
     expect(res.body.length).toEqual(10);
   });
 
+  // test 2
+  it('return car detail with id', async () => {
+    const res = await request(app).get('/cars/1');
+    const test = {
+      id: '1',
+      make: 'Toyota',
+      model: 'TundraMax',
+      year: '2009',
+      color: 'Fuscia',
+      origin: 'United States',
+    };
+    expect(res.body).toEqual(test);
+  });
+
   afterAll(() => {
     pool.end();
   });
