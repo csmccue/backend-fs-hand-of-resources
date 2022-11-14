@@ -21,7 +21,9 @@ describe('backend-express-template routes', () => {
       id: '3',
       company: 'Demimbu',
       role: 'Project Manager',
-      salary: '7701',
+      stock: 'M&T Bank Corporation',
+      salary: 7701,
+      field: 'Support'
     };
     expect(res.body).toEqual(test);
   });
