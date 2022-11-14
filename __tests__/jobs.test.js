@@ -42,6 +42,12 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
   });
 
+  // test 4 - PUT
+  it('PUT /jobs/4 should update with id #2', async () => {
+    const resp = await request(app).put('/jobs/4').send({ role: 'Engineer' });
+    expect(resp.status).toBe(200);
+    expect(resp.body.role).toBe('Engineer');
+  });
 
   afterAll(() => {
     pool.end();
