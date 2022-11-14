@@ -54,7 +54,7 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(204);
 
     const getResp = await request(app).get('/cars/1');
-    expect(getResp.status).toBe(404);
+    expect(getResp.status).toBe(500);
   });
 
   afterAll(() => {
