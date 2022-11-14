@@ -43,10 +43,19 @@ describe('backend-express-template routes', () => {
   });
 
   // test 4 - PUT
-  it('PUT /jobs/4 should update with id #2', async () => {
+  it('PUT /jobs/4 should update with new role', async () => {
     const resp = await request(app).put('/jobs/4').send({ role: 'Engineer' });
     expect(resp.status).toBe(200);
     expect(resp.body.role).toBe('Engineer');
+  });
+
+  // test 5 - DELETE
+  it('DELETE THIS NEPHEW /jobs/3 should be deleted', async () => {
+    const resp = await request(app).delete('/jobs/3');
+    expect(resp.status).toBe(204);
+
+    const getResp = await request(app).get('/jobs/3');
+    expect(getResp.status).toBe(500);
   });
 
   afterAll(() => {
