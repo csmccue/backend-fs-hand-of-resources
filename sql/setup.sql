@@ -2,6 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
 DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS jobs;
 
 create table cars (
 	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -10,6 +11,15 @@ create table cars (
 	year VARCHAR,
 	color VARCHAR,
 	origin VARCHAR
+);
+
+create table jobs (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	company VARCHAR,
+	role VARCHAR,
+	stock VARCHAR,
+	salary INT,
+	field VARCHAR
 );
 
 INSERT INTO cars (
@@ -29,5 +39,25 @@ VALUES
 	('Mitsubishi', 'Mighty Max', 1994, 'Orange', 'United States'),
 	('Land Rover', 'Freelander', 2008, 'Mauv', 'Zambia'),
 	('Toyota', 'Tacoma Xtra', 2003, 'Mauv', 'Peru'),
-	('BMW', 'Z4', 2011, 'Indigo', 'Ecuador'),
+	('BMW', 'Z4', 201'Indigo', 'Ecuador'),
 	('Mitsubishi', 'Eclipse', 2006, 'Crimson', 'China');
+
+INSERT INTO jobs (
+	company,
+	role,
+	stock,
+	salary,
+	field
+)
+
+VALUES
+('Digitube', 'Construction Foreman', 'Prudential Public Limited Company', 73629, 'Research and Development');
+('Jatri', 'Project Manager', 'Infinity Property and Casualty Corporation', 71915, 'Human Resources');
+('Demimbu', 'Project Manager', 'M&T Bank Corporation', 7701'Support');
+('Jabbercube', 'Project Manager', 'AAON, Inc.', 70103, 'Business Development');
+('Blogtags', 'Construction Manager', 'SeaChange International, Inc.', 75439, 'Legal');
+('Camimbo', 'Estimator', 'Astrazeneca PLC', 118105, 'Accounting');
+('Yambee', 'Surveyor', 'Intermolecular, Inc.', 91718, 'Support');
+('Yodoo', 'Surveyor', 'Boston Omaha Corporation', 99966, 'Legal');
+('Twitterwire', 'Construction Expeditor', 'Arrow Financial Corporation', 84078, 'Accounting');
+('Babbleblab', 'Engineer', 'Sunworks, Inc.', 101794, 'Engineering');
