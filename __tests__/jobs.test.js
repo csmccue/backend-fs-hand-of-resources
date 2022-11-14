@@ -9,7 +9,7 @@ describe('backend-express-template routes', () => {
   });
 
   // test 1 - GET ALL
-  it.skip('GET return all jobs data', async () => {
+  it('GET return all jobs data', async () => {
     const res = await request(app).get('/jobs');
     expect(res.body.length).toEqual(10);
   });
