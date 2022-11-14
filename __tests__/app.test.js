@@ -21,11 +21,13 @@ describe('backend-express-template routes', () => {
       id: '1',
       make: 'Toyota',
       model: 'TundraMax',
-      year: '2009',
+      // year: 2009,
       color: 'Fuscia',
       origin: 'United States',
     };
     expect(res.body).toEqual(test);
+
+
   });
 
   afterAll(() => {
