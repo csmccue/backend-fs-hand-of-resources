@@ -8,10 +8,22 @@ describe('backend-express-template routes', () => {
     return setup(pool);
   });
 
-  // test 1 - GET ALL
+  // test 1 - GET ALL JOBS
   it('GET return all jobs data', async () => {
     const res = await request(app).get('/jobs');
     expect(res.body.length).toEqual(10);
+  });
+
+  // test 2 - GET JOBS 3
+  it('GET return jobs 3', async () => {
+    const res = await request(app).get('/jobs/3');
+    const test = {
+      id: '3',
+      company: 'Demimbu',
+      role: 'Project Manager',
+      salary: '7701',
+    };
+    expect(res.body).toEqual(test);
   });
 
   afterAll(() => {
