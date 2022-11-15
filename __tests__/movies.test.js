@@ -38,7 +38,7 @@ describe('backend-express-template routes', () => {
       director: 'Arnold',
       language: 'Spanish'
     };
-    const resp = await request(app).post('/movie').send(newMovie);
+    const resp = await request(app).post('/movies').send(newMovie);
     expect(resp.status).toBe(200);
   });
 
