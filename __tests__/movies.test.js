@@ -28,6 +28,26 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
+  // test 3 - POST
+  it('POST should create new movie in data base', async () => {
+    const newMovie = {
+      id: '11',
+      title: 'Starship Troopers',
+      genre: 'Comedy',
+      country: 'USA',
+      director: 'Arnold',
+      language: 'Spanish'
+    };
+    const resp = await request(app).post('/movie').send(newMovie);
+    expect(resp.status).toBe(200);
+  });
+
+
+
+
+
+
+
   afterAll(() => {
     pool.end();
   });
