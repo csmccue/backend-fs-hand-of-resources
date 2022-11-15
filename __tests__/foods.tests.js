@@ -25,7 +25,7 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-  it.skip('POST should create new food in data base', async () => {
+  it('POST should create new food in data base', async () => {
     const newFood = {
       id: '11',
       grocery_name: 'Good Beer',
