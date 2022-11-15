@@ -7,12 +7,23 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('GET return all the foods', async () => {
+  it.skip('GET return all the foods', async () => {
     const res = await request(app).get('/foods');
     expect(res.body.length).toEqual(10);
   });
 
-
+  it('GET return foods 9', async () => {
+    const res = await request(app).get('/foods/9');
+    const test = {
+      id: '9',
+      grocery_name: 'Wine - Cousino Macul Antiguas',
+      common_name: 'Veiny Pea',
+      family: 'Fabaceae',
+      plant_name: 'Lathyrus venosus Muhl. ex Willd.',
+      is_it_good: false
+    };
+    expect(res.body).toEqual(test);
+  });
 
 
 
