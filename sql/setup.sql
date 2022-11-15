@@ -4,6 +4,7 @@
 DROP TABLE IF EXISTS cars;
 DROP TABLE IF EXISTS jobs;
 DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS drugs;
 
 create table cars (
 	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -30,6 +31,15 @@ create table movies (
 	country VARCHAR,
 	director VARCHAR,
 	language VARCHAR
+);
+
+create table drugs (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	company VARCHAR,
+	name VARCHAR,
+	generic VARCHAR,
+	FDA VARCHAR,
+	country VARCHAR
 );
 
 INSERT INTO cars (
@@ -91,3 +101,23 @@ VALUES
 ('Army of Darkness', 'Action|Adventure|Comedy|Fantasy|Horror', 'Portugal', 'Manya Rapport', 'Romanian'),
 ('Bachelor in Paradise', 'Comedy|Romance', 'China', 'Susanne Truett', 'Ndebele'),
 ('Return to Salem''s Lot, A', 'Horror', 'Russia', 'Norry Peschet', 'Albanian');
+
+INSERT INTO drugs (
+	company,
+	name,
+	generic,
+	FDA,
+	country
+)
+
+VALUES
+('Cadila Healthcare Limited', 'Ribavirin', 'Ribavirin', '65841-603', 'FR'),
+('Carilion Materials Management', 'Ethambutol Hydrochloride', 'Ethambutol Hydrochloride', '68151-0149', 'GR'),
+('Natures Way Holding Co.', 'PSORIAFLORA', 'MAHONIA AQUIFOLIUM ROOT BARK', '53499-0990', 'GR'),
+('Quality Home Products', 'Our Family day time severe cold and Cough', 'Acetaminophen, Dextromethorphan HBr, and Phenylephrine HCL.', '64525-0545', 'PL'),
+('ALILY (ZHANGZHOU) BATH PRODUCTS LTD.', 'Pier 1 Imports Melon and Mint Anti-Bacterial Hand Sanitizer', 'Alcohol', '49371-019', 'PH'),
+('Uriel Pharmacy Inc.', 'Platinum Cichorium', 'Platinum Cichorium', '48951-8043', 'ID'),
+('Antigen Laboratories, Inc.', 'Treatment Set TS345381', 'Treatment Set TS345381', '49288-0847', 'MG'),
+('AMERICAN SALES COMPANY', 'CAREONE', 'ETHYL ALCOHOL', '41520-423', 'IE'),
+('Nelco Laboratories, Inc.', 'Mexican Tea Pollen', 'Mexican Tea Pollen', '36987-3262', 'ID'),
+('Nelco Laboratories, Inc.', 'Black Walnut', 'Black Walnut', '36987-3064', 'JP');
