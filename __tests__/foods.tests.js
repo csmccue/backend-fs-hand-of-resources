@@ -25,7 +25,7 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-  it('POST should create new food in data base', async () => {
+  it.skip('POST should create new food in data base', async () => {
     const newFood = {
       id: '11',
       grocery_name: 'Good Beer',
@@ -37,10 +37,17 @@ describe('backend-express-template routes', () => {
     const resp = await request(app).post('/foods').send(newFood);
     expect(resp.status).toBe(200);
   });
-  it('PUT /foods/10 should update with new grocery name', async () => {
+  it.skip('PUT /foods/10 should update with new grocery name', async () => {
     const resp = await request(app).put('/foods/10').send({ grocery_name: 'That good good' });
     expect(resp.status).toBe(200);
     expect(resp.body.grocery_name).toBe('That good good');
+  });
+
+  it('DELETE /foods/9 should be deleted', async () => {
+    const resp = await request(app).delete('/foods/9');
+    expect(resp.status).toBe(204);
+    const resp2 = await request(app).get('/foods/9');
+    expect(resp2.status).toBe(404);
   });
 
 
