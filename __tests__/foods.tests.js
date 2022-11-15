@@ -12,7 +12,7 @@ describe('backend-express-template routes', () => {
     expect(res.body.length).toEqual(10);
   });
 
-  it('GET return foods 9', async () => {
+  it.skip('GET return foods 9', async () => {
     const res = await request(app).get('/foods/9');
     const test = {
       id: '9',
@@ -25,7 +25,18 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-
+  it('POST should create new food in data base', async () => {
+    const newFood = {
+      id: '11',
+      grocery_name: 'Good Beer',
+      common_name: 'Veiny Forearm',
+      family: 'Not mine',
+      plant_name: 'Cauliflower',
+      is_it_good: true
+    };
+    const resp = await request(app).post('/foods').send(newFood);
+    expect(resp.status).toBe(200);
+  });
 
 
   afterAll(() => {
