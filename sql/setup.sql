@@ -3,6 +3,7 @@
 
 DROP TABLE IF EXISTS cars;
 DROP TABLE IF EXISTS jobs;
+DROP TABLE IF EXISTS movies;
 
 create table cars (
 	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -20,6 +21,15 @@ create table jobs (
 	stock VARCHAR,
 	salary INT,
 	field VARCHAR
+);
+
+create table movies (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	title VARCHAR,
+	genre VARCHAR,
+	country VARCHAR,
+	director VARCHAR,
+	language VARCHAR
 );
 
 INSERT INTO cars (
@@ -61,3 +71,23 @@ VALUES
 ('Yodoo', 'Surveyor', 'Boston Omaha Corporation', 99966, 'Legal'),
 ('Twitterwire', 'Construction Expeditor', 'Arrow Financial Corporation', 84078, 'Accounting'),
 ('Babbleblab', 'Engineer', 'Sunworks, Inc.', 101794, 'Engineering');
+
+INSERT INTO movies (
+	title,
+	genre,
+	country,
+	director,
+	language
+)
+
+VALUES
+('Sons of Perdition', 'Documentary', 'China', 'Denni Stoaks', 'Greek'),
+('Wings of Hope (Julianes Sturz in den Dschungel)', 'Adventure|Documentary', 'Indonesia', 'Guilbert Brislane', 'Indonesian'),
+('Just Bea (Bare Bea)', 'Drama', 'Indonesia', 'Odelia Fetherby', 'Bosnian'),
+('Night of the Comet', 'Comedy|Horror|Sci-Fi', 'Ukraine', 'Gerrard Lyst', 'Kashmiri'),
+('Tunnel, The (Tunnel, Der)', 'Action|Drama|Thriller', 'China', 'Keslie Clausewitz', 'Guaraní'),
+('Lone Ranger, The', 'Adventure|Western', 'Indonesia', 'Goddard Ghilks', 'English'),
+('Where Love Has Gone', 'Drama', 'China', 'Morey Gouly', 'Danish'),
+('Army of Darkness', 'Action|Adventure|Comedy|Fantasy|Horror', 'Portugal', 'Manya Rapport', 'Romanian'),
+('Bachelor in Paradise', 'Comedy|Romance', 'China', 'Susanne Truett', 'Ndebele'),
+('Return to Salem''s Lot, A', 'Horror', 'Russia', 'Norry Peschet', 'Albanian');
