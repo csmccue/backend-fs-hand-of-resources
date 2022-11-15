@@ -44,7 +44,7 @@ describe('backend-express-template routes', () => {
 
   // test 4 - PUT
   it('PUT /movies/6 should update with new director', async () => {
-    const resp = await request(app).put('/movies/').send({ director: 'Emily' });
+    const resp = await request(app).put('/movies/6').send({ director: 'Emily' });
     expect(resp.status).toBe(200);
     expect(resp.body.director).toBe('Emily');
   });
