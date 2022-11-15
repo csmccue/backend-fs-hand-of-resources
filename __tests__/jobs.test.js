@@ -9,13 +9,13 @@ describe('backend-express-template routes', () => {
   });
 
   // test 1 - GET ALL JOBS
-  it('GET return all jobs data', async () => {
+  it.skip('GET return all jobs data', async () => {
     const res = await request(app).get('/jobs');
     expect(res.body.length).toEqual(10);
   });
 
   // test 2 - GET JOBS 3 DETAIL
-  it('GET return jobs 3', async () => {
+  it.skip('GET return jobs 3', async () => {
     const res = await request(app).get('/jobs/3');
     const test = {
       id: '3',
@@ -29,7 +29,7 @@ describe('backend-express-template routes', () => {
   });
 
   // test 3 - POST
-  it('POST should create new job in data base', async () => {
+  it.skip('POST should create new job in data base', async () => {
     const newJob = {
       id: '11',
       company: 'Badonk Bidet',
@@ -43,14 +43,14 @@ describe('backend-express-template routes', () => {
   });
 
   // test 4 - PUT
-  it('PUT /jobs/4 should update with new role', async () => {
+  it.skip('PUT /jobs/4 should update with new role', async () => {
     const resp = await request(app).put('/jobs/4').send({ role: 'Engineer' });
     expect(resp.status).toBe(200);
     expect(resp.body.role).toBe('Engineer');
   });
 
   // test 5 - DELETE
-  it('DELETE THIS NEPHEW /jobs/3 should be deleted', async () => {
+  it.skip('DELETE THIS NEPHEW /jobs/3 should be deleted', async () => {
     const resp = await request(app).delete('/jobs/3');
     expect(resp.status).toBe(204);
     const resp2 = await request(app).get('/jobs/3');
