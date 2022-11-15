@@ -53,9 +53,17 @@ describe('backend-express-template routes', () => {
   it('DELETE THIS NEPHEW /jobs/3 should be deleted', async () => {
     const resp = await request(app).delete('/jobs/3');
     expect(resp.status).toBe(204);
+    const resp2 = await request(app).get('/jobs/3');
+    expect(resp2.status).toBe(404);
 
-    const getResp = await request(app).get('/jobs/3');
-    expect(getResp.status).toBe(500);
+    // const getResp = await request(app).get('/jobs/3');
+    // expect(getResp.status).toBe(500);
+    // const getResp = await request(app).get('/jobs/3');
+    // // console.log(getResp.body);
+    // const resp = await request(app).delete('/jobs/3');
+    // // console.log(resp.body);
+    // expect(getResp.body).toEqual(resp.body);
+
   });
 
   afterAll(() => {
