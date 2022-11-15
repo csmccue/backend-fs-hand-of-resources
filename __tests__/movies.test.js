@@ -50,7 +50,7 @@ describe('backend-express-template routes', () => {
   });
 
   // test 5 - DELETE
-  it('DELETE THIS NEPHEW /movies/4 should be deleted', async () => {
+  it('DELETE /movies/4 should be deleted', async () => {
     const resp = await request(app).delete('/movies/4');
     expect(resp.status).toBe(204);
     const resp2 = await request(app).get('/movies/4');
