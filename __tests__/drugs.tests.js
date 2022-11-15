@@ -25,7 +25,7 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-  it('POST should create new drug in data base', async () => {
+  it.skip('POST should create new drug in data base', async () => {
     const newDrug = {
       id: '11',
       company: 'Your Moms House',
@@ -38,7 +38,11 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
   });
 
-
+  it('PUT /drugs/8 should update with new generic', async () => {
+    const resp = await request(app).put('/drugs/8').send({ generic: 'Viagra' });
+    expect(resp.status).toBe(200);
+    expect(resp.body.generic).toBe('Viagra');
+  });
 
 
 
