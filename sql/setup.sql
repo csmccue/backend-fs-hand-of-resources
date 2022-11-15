@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS cars;
 DROP TABLE IF EXISTS jobs;
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS drugs;
+DROP TABLE IF EXISTS foods;
 
 create table cars (
 	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -41,6 +42,16 @@ create table drugs (
 	FDA VARCHAR,
 	country VARCHAR
 );
+
+create table foods (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	grocery_name VARCHAR,
+	common_name VARCHAR,
+	family VARCHAR,
+	plant_name VARCHAR,
+	is_it_good BOOLEAN
+);
+
 
 INSERT INTO cars (
 	make,
@@ -110,6 +121,7 @@ INSERT INTO drugs (
 	country
 )
 
+
 VALUES
 ('Cadila Healthcare Limited', 'Ribavirin', 'Ribavirin', '65841-603', 'FR'),
 ('Carilion Materials Management', 'Ethambutol Hydrochloride', 'Ethambutol Hydrochloride', '68151-0149', 'GR'),
@@ -121,3 +133,23 @@ VALUES
 ('AMERICAN SALES COMPANY', 'CAREONE', 'ETHYL ALCOHOL', '41520-423', 'IE'),
 ('Nelco Laboratories, Inc.', 'Mexican Tea Pollen', 'Mexican Tea Pollen', '36987-3262', 'ID'),
 ('Nelco Laboratories, Inc.', 'Black Walnut', 'Black Walnut', '36987-3064', 'JP');
+
+insert into  foods (
+	grocery_name,
+	common_name,
+	family,
+	plant_name,
+	is_it_good
+)
+
+VALUES
+('Potatoes - Pei 10 Oz', 'Beard Lichen', 'Parmeliaceae', 'Usnea mirabilis Mot.', true),
+('Pork - Back Ribs', 'Bryum Moss', 'Bryaceae', 'Bryum Hedw.', true),
+('Mace', 'Pumpelly''s Brome', 'Poaceae', 'Bromus inermis Leyss. ssp. pumpellianus (Scribn.) Wagnon var. pumpellianus (Scribn.) C.L. Hitchc.', true),
+('Tart Shells - Savory, 2', 'Bougainvillea', 'Nyctaginaceae', 'Bougainvillea Comm. ex Juss.', true),
+('Table Cloth 54x72 White', 'Checker Lily', 'Liliaceae', 'Fritillaria affinis (Schult.) Sealy var. tristulis (A.L. Grant) B. Ness', false),
+('Quail - Eggs, Fresh', 'Sorrel', 'Oxalidaceae', 'Oxalis rosea Feuillee ex Jacq.', true),
+('Shark - Loin', 'Grouse Whortleberry', 'Ericaceae', 'Vaccinium scoparium Leiberg ex Coville', true),
+('Pepsi - Diet, 355 Ml', 'Seaside Goldenrod', 'Asteraceae', 'Solidago sempervirens L. var. sempervirens', false),
+('Wine - Cousino Macul Antiguas', 'Veiny Pea', 'Fabaceae', 'Lathyrus venosus Muhl. ex Willd.', false),
+('Shrimp - Baby, Cold Water', 'Smooth Rose', 'Rosaceae', 'Rosa blanda Aiton var. blanda', true);
