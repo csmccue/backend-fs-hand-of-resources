@@ -7,12 +7,12 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.skip('GET return all the foods', async () => {
+  it('GET return all the foods', async () => {
     const res = await request(app).get('/foods');
     expect(res.body.length).toEqual(10);
   });
 
-  it.skip('GET return foods 9', async () => {
+  it('GET return foods 9', async () => {
     const res = await request(app).get('/foods/9');
     const test = {
       id: '9',
@@ -25,7 +25,7 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-  it.skip('POST should create new food in data base', async () => {
+  it('POST should create new food in data base', async () => {
     const newFood = {
       id: '11',
       grocery_name: 'Good Beer',
@@ -37,7 +37,7 @@ describe('backend-express-template routes', () => {
     const resp = await request(app).post('/foods').send(newFood);
     expect(resp.status).toBe(200);
   });
-  it.skip('PUT /foods/10 should update with new grocery name', async () => {
+  it('PUT /foods/10 should update with new grocery name', async () => {
     const resp = await request(app).put('/foods/10').send({ grocery_name: 'That good good' });
     expect(resp.status).toBe(200);
     expect(resp.body.grocery_name).toBe('That good good');

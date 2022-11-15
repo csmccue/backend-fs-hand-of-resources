@@ -9,13 +9,13 @@ describe('backend-express-template routes', () => {
   });
 
   // test 1 - GET ALL
-  it.skip('GET return all car data', async () => {
+  it('GET return all car data', async () => {
     const res = await request(app).get('/cars');
     expect(res.body.length).toEqual(10);
   });
 
   // test 2 - GET DETAIL
-  it.skip('GET return car detail with id', async () => {
+  it('GET return car detail with id', async () => {
     const res = await request(app).get('/cars/1');
     const test = {
       id: '1',
@@ -29,7 +29,7 @@ describe('backend-express-template routes', () => {
   });
 
   // test 3 - POST
-  it.skip('POST should create new car in data base', async () => {
+  it('POST should create new car in data base', async () => {
     const newCar = {
       make: 'Hummer',
       model: 'Hummer',
@@ -42,14 +42,14 @@ describe('backend-express-template routes', () => {
   });
 
   // test 4 - PUT
-  it.skip('PUT /cars/2 should update with id #2', async () => {
+  it('PUT /cars/2 should update with id #2', async () => {
     const resp = await request(app).put('/cars/2').send({ color: 'White' });
     expect(resp.status).toBe(200);
     expect(resp.body.color).toBe('White');
   });
 
   // test 5 - DELETE
-  it.skip('DELETE THIS NEPHEW /cars/1 should delete cars #1', async () => {
+  it('DELETE THIS NEPHEW /cars/1 should delete cars #1', async () => {
     const resp = await request(app).delete('/cars/1');
     expect(resp.status).toBe(204);
 

@@ -7,12 +7,12 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.skip('GET return all drugs data', async () => {
+  it('GET return all drugs data', async () => {
     const res = await request(app).get('/drugs');
     expect(res.body.length).toEqual(10);
   });
 
-  it.skip('GET return drugs 7', async () => {
+  it('GET return drugs 7', async () => {
     const res = await request(app).get('/drugs/7');
     const test = {
       id: '7',
@@ -25,7 +25,7 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-  it.skip('POST should create new drug in data base', async () => {
+  it('POST should create new drug in data base', async () => {
     const newDrug = {
       id: '11',
       company: 'Your Moms House',
@@ -38,13 +38,13 @@ describe('backend-express-template routes', () => {
     expect(resp.status).toBe(200);
   });
 
-  it.skip('PUT /drugs/8 should update with new generic', async () => {
+  it('PUT /drugs/8 should update with new generic', async () => {
     const resp = await request(app).put('/drugs/8').send({ generic: 'Viagra' });
     expect(resp.status).toBe(200);
     expect(resp.body.generic).toBe('Viagra');
   });
 
-  it.skip('DELETE /drugs/7 should be deleted', async () => {
+  it('DELETE /drugs/7 should be deleted', async () => {
     const resp = await request(app).delete('/drugs/7');
     expect(resp.status).toBe(204);
     const resp2 = await request(app).get('/drugs/7');
